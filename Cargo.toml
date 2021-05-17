@@ -1,9 +1,0 @@
-[workspace]
-members = [
-	"core/*",
-	"client/cli",
-	"client/web/wasm",
-]
-
-[profile.release.package.graphite-wasm-wrapper]
-opt-level = "s"

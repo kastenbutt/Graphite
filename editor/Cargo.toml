@@ -1,0 +1,15 @@
+[package]
+name = "graphite-editor-core"
+version = "0.1.0"
+authors = ["Graphite Authors <contact@graphite.design>"]
+edition = "2018"
+readme = "../../README.md"
+homepage = "https://www.graphite.design"
+repository = "https://github.com/GraphiteEditor/Graphite"
+license = "Apache-2.0"
+
+
+
+[dependencies.proc-macros]
+path = "../proc-macro"
+package = "graphite-proc-macros"
