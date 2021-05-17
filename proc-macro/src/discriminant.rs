@@ -1,8 +1,12 @@
 use crate::helper_structs::ParenthesizedTokens;
-use crate::helpers::call_site_ident;
 use proc_macro2::{Ident, Span, TokenStream};
 use syn::spanned::Spanned;
 use syn::{Attribute, Data, DeriveInput, Field, Fields, ItemEnum, Type};
+
+/// Creates an ident at the call site
+pub fn call_site_ident<S: AsRef<str>>(s: S) -> Ident {
+    Ident::new(s.as_ref(), Span::call_site())
+}
 
 pub fn derive_discriminant_impl(input_item: TokenStream) -> syn::Result<TokenStream> {
     let input = syn::parse2::<DeriveInput>(input_item).unwrap();
