@@ -6,11 +6,14 @@ use super::{
 	InputPreprocessor,
 };
 
+use std::fmt::Write;
+
 #[impl_message(Message, InputMapper)]
 #[derive(PartialEq, Clone, Debug)]
 pub enum InputMapperMessage {
 	PointerMove,
 	KeyUp(Key),
+	#[child]
 	KeyDown(Key),
 }
 
@@ -185,6 +188,25 @@ impl Mapping {
 #[derive(Debug, Default)]
 pub struct InputMapper {
 	mapping: Mapping,
+}
+
+impl InputMapper {
+	pub fn hints(&self, actions: ActionList) -> String {
+		let mut output = String::new();
+		self.mapping
+			.down
+			.iter()
+			.enumerate()
+			.filter_map(|(i, m)| {
+				m.0.iter()
+					.any(|m| actions.iter().any(|al| al.contains(&m.action.to_discriminant())))
+					.then(|| unsafe { std::mem::transmute_copy::<usize, Key>(&i) })
+			})
+			.for_each(|k| {
+				let _ = write!(output, "{} ", k.to_discriminant().local_name());
+			});
+		output
+	}
 }
 
 impl MessageHandler<InputMapperMessage, (&InputPreprocessor, ActionList)> for InputMapper {
