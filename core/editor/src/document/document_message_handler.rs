@@ -10,7 +10,7 @@ use crate::document::Document;
 use std::collections::VecDeque;
 
 #[impl_message(Message, Document)]
-#[derive(PartialEq, Clone, Debug)]
+#[derive(Clone, Debug)]
 pub enum DocumentMessage {
 	DispatchOperation(DocumentOperation),
 	SelectLayers(Vec<Vec<LayerId>>),

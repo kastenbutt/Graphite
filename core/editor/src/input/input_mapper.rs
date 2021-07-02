@@ -7,14 +7,14 @@ use super::{
 };
 
 #[impl_message(Message, InputMapper)]
-#[derive(PartialEq, Clone, Debug)]
+#[derive(Clone, Debug)]
 pub enum InputMapperMessage {
 	PointerMove,
 	KeyUp(Key),
 	KeyDown(Key),
 }
 
-#[derive(PartialEq, Clone, Debug)]
+#[derive(Clone, Debug)]
 struct MappingEntry {
 	trigger: InputMapperMessage,
 	modifiers: KeyStates,

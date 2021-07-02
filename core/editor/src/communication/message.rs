@@ -12,7 +12,7 @@ where
 }
 
 #[impl_message]
-#[derive(PartialEq, Clone, Debug)]
+#[derive(Clone, Debug)]
 pub enum Message {
 	NoOp,
 	#[child]

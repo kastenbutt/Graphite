@@ -3,7 +3,7 @@ use crate::{layers::style, LayerId};
 use serde::{Deserialize, Serialize};
 
 #[repr(C)]
-#[derive(Debug, Clone, PartialEq, Deserialize, Serialize)]
+#[derive(Debug, Clone, Deserialize, Serialize)]
 pub enum Operation {
 	AddEllipse {
 		path: Vec<LayerId>,

@@ -6,7 +6,7 @@ use crate::message_prelude::*;
 pub use document_core::DocumentResponse;
 
 #[impl_message(Message, InputPreprocessor)]
-#[derive(PartialEq, Clone, Debug)]
+#[derive(Clone, Debug)]
 pub enum InputPreprocessorMessage {
 	MouseDown(MouseState),
 	MouseUp(MouseState),

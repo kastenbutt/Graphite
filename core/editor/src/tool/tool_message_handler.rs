@@ -9,7 +9,7 @@ use crate::{
 use std::collections::VecDeque;
 
 #[impl_message(Message, Tool)]
-#[derive(PartialEq, Clone, Debug)]
+#[derive(Clone, Debug)]
 pub enum ToolMessage {
 	SelectTool(ToolType),
 	SelectPrimaryColor(Color),

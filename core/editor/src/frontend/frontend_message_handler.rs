@@ -6,7 +6,7 @@ use serde::{Deserialize, Serialize};
 pub type Callback = Box<dyn Fn(FrontendMessage)>;
 
 #[impl_message(Message, Frontend)]
-#[derive(PartialEq, Clone, Deserialize, Serialize, Debug)]
+#[derive(Clone, Deserialize, Serialize, Debug)]
 pub enum FrontendMessage {
 	CollapseFolder { path: Vec<LayerId> },
 	ExpandFolder { path: Vec<LayerId>, children: Vec<LayerPanelEntry> },
